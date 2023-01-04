@@ -100,6 +100,7 @@ class MappingController {
 						$set: {
 							win: player.win + playerData.win,
 							tip: player.tip + playerData.tip,
+							balance: player.balance + playerData.tip + playerData.win,
 						},
 						$push: { tournaments: tournament._id },
 					}
@@ -212,6 +213,7 @@ class MappingController {
 						$set: {
 							win: player.win - removedPlayer.win,
 							tip: player.tip - removedPlayer.tip,
+							balance: player.balance - (removedPlayer.tip + removedPlayer.win),
 						},
 						$pull: { tournaments: tournament._id },
 					}

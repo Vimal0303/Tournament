@@ -307,6 +307,7 @@ class TournamentController {
 						$inc: {
 							win: -(allMappings[i].win),
 							tip: -(allMappings[i].tip),
+							balance: -(allMappings[i].tip + allMappings[i].win),
 						},
 						$pull: { tournaments: allMappings[i].tournament },
 					}
